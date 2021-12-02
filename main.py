@@ -39,17 +39,26 @@ with open("countries.yaml", "r") as f:
             # Append country list object to list
             # of country objects
             countries_to_visit.append(country)
-            print(country)
+            #print(country)
+
+# one list for each month
+schedule = [[] for _ in range(12)]
+
+for country in countries_to_visit:
+
+    print(country.start_dates[0].month)
+    # If the month is empty then start enter this (first try)
+    if not schedule[country.start_dates[0].month - 1]:
+        schedule[country.start_dates[0].month - 1].append(country.name)
+    # The month is not empty
 
 
-date = datetime.date(2021, 8, 31)
 
-curr_country = countries_to_visit[0]
+print(schedule)
 
-
-if curr_country.start_dates[0] <= date <= curr_country.end_dates[0]:
-    print("in date range")
-else:
-    print("not in range")
+# if curr_country.start_dates[0] <= date <= curr_country.end_dates[0]:
+#     print("in date range")
+# else:
+#     print("not in range")
 
 
